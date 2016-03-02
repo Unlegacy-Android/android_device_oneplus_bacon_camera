@@ -1164,12 +1164,12 @@ int32_t QCameraStateMachine::procEvtPreviewingState(qcamera_sm_evt_enum_t evt,
         break;
     case QCAMERA_SM_EVT_SEND_COMMAND:
         {
+#ifndef VANILLA_HAL
             qcamera_sm_evt_command_payload_t *cmd_payload =
                 (qcamera_sm_evt_command_payload_t *)payload;
             rc = m_parent->sendCommand(cmd_payload->cmd,
                                        cmd_payload->arg1,
                                        cmd_payload->arg2);
-#ifndef VANILLA_HAL
             if (CAMERA_CMD_LONGSHOT_ON == cmd_payload->cmd) {
                 if (QCAMERA_SM_EVT_RESTART_PERVIEW == cmd_payload->arg1) {
                     m_parent->stopPreview();

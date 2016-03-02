@@ -1534,7 +1534,7 @@ void QCamera2HardwareInterface::dumpJpegToFile(const void *data,
                 snprintf(buf, sizeof(buf), "/data/misc/camera/%d_%d.jpg", mDumpFrmCnt, index);
 #endif
                 if (true == m_bIntEvtPending) {
-                    strncpy(m_BackendFileName, buf, sizeof(buf));
+                    strncpy(m_BackendFileName, buf, QCAMERA_MAX_FILEPATH_LENGTH);
                     mBackendFileSize = size;
                 }
 

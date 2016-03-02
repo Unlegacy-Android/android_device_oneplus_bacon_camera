@@ -1707,11 +1707,9 @@ int32_t mm_stream_unreg_buf(mm_stream_t * my_obj)
 
     /* reset buf reference count */
     pthread_mutex_lock(&my_obj->buf_lock);
-    if (NULL != my_obj->buf_status) {
-        for(i = 0; i < my_obj->buf_num; i++){
-            my_obj->buf_status[i].buf_refcnt = 0;
-            my_obj->buf_status[i].in_kernel = 0;
-        }
+    for(i = 0; i < my_obj->buf_num; i++){
+        my_obj->buf_status[i].buf_refcnt = 0;
+        my_obj->buf_status[i].in_kernel = 0;
     }
     pthread_mutex_unlock(&my_obj->buf_lock);
 

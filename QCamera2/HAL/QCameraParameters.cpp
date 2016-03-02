@@ -8334,7 +8334,7 @@ int32_t QCameraParameters::getExifGpsProcessingMethod(char *gpsProcessingMethod,
     if(str != NULL) {
         memcpy(gpsProcessingMethod, ExifAsciiPrefix, EXIF_ASCII_PREFIX_SIZE);
         count = EXIF_ASCII_PREFIX_SIZE;
-        strncpy(gpsProcessingMethod + EXIF_ASCII_PREFIX_SIZE, str, strlen(str));
+        strncpy(gpsProcessingMethod + EXIF_ASCII_PREFIX_SIZE, str, GPS_PROCESSING_METHOD_SIZE);
         count += (uint32_t)strlen(str);
         gpsProcessingMethod[count++] = '\0'; // increase 1 for the last NULL char
         return NO_ERROR;
@@ -9343,11 +9343,9 @@ int32_t QCameraParameters::commitParamChanges()
  *
  * RETURN     : none
  *==========================================================================*/
-QCameraReprocScaleParam::QCameraReprocScaleParam(QCameraParameters *parent)
-  : mParent(parent),
-    mScaleEnabled(false),
+QCameraReprocScaleParam::QCameraReprocScaleParam(__unused QCameraParameters *parent)
+  : mScaleEnabled(false),
     mIsUnderScaling(false),
-    mScaleDirection(0),
     mNeedScaleCnt(0),
     mSensorSizeTblCnt(0),
     mSensorSizeTbl(NULL),

@@ -14,8 +14,7 @@ LOCAL_SRC_FILES := \
 	QCameraPostProc.cpp \
         QCamera2HWICallbacks.cpp \
         QCameraParameters.cpp \
-        QCameraThermalAdapter.cpp \
-        wrapper/QualcommCamera.cpp
+        QCameraThermalAdapter.cpp
 
 LOCAL_CFLAGS = -Wall -Wextra -Werror -Wno-unused-parameter -Wno-unused-variable
 
@@ -43,8 +42,7 @@ LOCAL_C_INCLUDES := \
         hardware/qcom/media/libstagefrighthw \
         $(LOCAL_PATH)/../../mm-image-codec/qexif \
         $(LOCAL_PATH)/../../mm-image-codec/qomx_core \
-        $(LOCAL_PATH)/../util \
-        $(LOCAL_PATH)/wrapper
+        $(LOCAL_PATH)/../util
 
 ifeq ($(call is-platform-sdk-version-at-least,20),true)
 LOCAL_C_INCLUDES += system/media/camera/include
