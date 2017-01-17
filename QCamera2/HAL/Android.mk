@@ -19,6 +19,12 @@ LOCAL_SRC_FILES := \
 
 LOCAL_CFLAGS = -Wall -Werror
 
+LOCAL_CLANG_CFLAGS += \
+    -Wno-error=unused-variable \
+    -Wno-error=sign-compare \
+    -Wno-error=unused-parameter \
+		-Wno-error=unused-private-field
+
 #use media extension
 ifeq ($(TARGET_USES_MEDIA_EXTENSIONS), true)
 LOCAL_CFLAGS += -DUSE_MEDIA_EXTENSIONS
