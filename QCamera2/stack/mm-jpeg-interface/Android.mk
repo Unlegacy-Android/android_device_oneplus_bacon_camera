@@ -24,13 +24,13 @@ ifeq ($(strip $(TARGET_USES_ION)),true)
 endif
 
 
-ifeq ($(call is-board-platform-in-list, msm8974),true)
+ifneq ($(filter msm8974,$(TARGET_BOARD_PLATFORM)),)
     LOCAL_CFLAGS+= -DMM_JPEG_CONCURRENT_SESSIONS_COUNT=2
 else
     LOCAL_CFLAGS+= -DMM_JPEG_CONCURRENT_SESSIONS_COUNT=1
 endif
 
-ifeq ($(call is-board-platform-in-list, msm8610),true)
+ifneq ($(filter msm8610,$(TARGET_BOARD_PLATFORM)),)
     LOCAL_CFLAGS+= -DLOAD_ADSP_RPC_LIB
 endif
 

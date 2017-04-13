@@ -40,6 +40,10 @@ LOCAL_CFLAGS += -DDEFAULT_DENOISE_MODE_ON
 ifeq ($(TARGET_USE_VENDOR_CAMERA_EXT),true)
 LOCAL_CFLAGS += -DUSE_VENDOR_CAMERA_EXT
 endif
+#strip \
+#  $(if $(filter 1,$(shell echo "$$(( $(PLATFORM_SDK_VERSION) >= 18 ))" )), \
+#    true, \
+#  )?
 ifneq ($(call is-platform-sdk-version-at-least,18),true)
 LOCAL_CFLAGS += -DUSE_JB_MR1
 endif
