@@ -1,4 +1,3 @@
-ifeq ($(call is-vendor-board-platform,QCOM),true)
 OLD_LOCAL_PATH := $(LOCAL_PATH)
 LOCAL_PATH := $(call my-dir)
 
@@ -17,7 +16,7 @@ ifeq ($(strip $(TARGET_USES_ION)),true)
     LOCAL_CFLAGS += -DUSE_ION
 endif
 
-ifeq ($(call is-board-platform-in-list,msm8974 msm8916 msm8226 msm8610),true)
+ifneq ($(filter msm8226 msm8610 msm8974,$(TARGET_BOARD_PLATFORM)),)
     LOCAL_CFLAGS += -DVENUS_PRESENT
 endif
 
@@ -59,4 +58,3 @@ LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
 
 LOCAL_PATH := $(OLD_LOCAL_PATH)
-endif
