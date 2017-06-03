@@ -4283,7 +4283,7 @@ int32_t QCameraParameters::initDefaultParameters()
 
     //Set AF Bracketing.
     for(int i=0;i < m_pCapability->supported_focus_modes_cnt; i++) {
-        if ((CAM_FOCUS_MODE_AUTO == m_pCapability->supported_focus_modes[i]) &&
+        if ((CAM_FOCUS_MODE_CONTINOUS_PICTURE == m_pCapability->supported_focus_modes[i]) &&
                 ((m_pCapability->qcom_supported_feature_mask &
                         CAM_QCOM_FEATURE_UBIFOCUS) > 0)) {
             String8 afBracketingValues = createValuesStringFromMap(
