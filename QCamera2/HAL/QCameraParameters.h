@@ -604,8 +604,6 @@ public:
     int32_t  updateCurrentFocusPosition(int32_t pos);
     bool isDisplayFrameNeeded() { return m_bDisplayFrame; };
     int32_t setDisplayFrame(bool enabled) {m_bDisplayFrame=enabled; return 0;};
-    void setPrvwIsoMode(int32_t isoValue);
-    int32_t getPrvwIsoMode();
 
 private:
     int32_t setPreviewSize(const QCameraParameters& );
@@ -842,7 +840,6 @@ private:
     int32_t mHfrMode;
     bool m_bDisplayFrame;
     int32_t mExposureTime;
-    int32_t mPrvwIsoMode;
     int32_t mManualIso;
     bool m_bSceneModeAuto;
 };
