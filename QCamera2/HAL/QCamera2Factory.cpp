@@ -33,7 +33,7 @@
 #include <stdlib.h>
 #include <utils/Errors.h>
 #include <hardware/camera.h>
-#include <gui/SensorManager.h>
+#include <sensor/SensorManager.h>
 
 #include "QCamera2Factory.h"
 
@@ -181,7 +181,7 @@ int QCamera2Factory::cameraDeviceOpen(int camera_id,
         ALOGE("Waiting for sensor service failed.");
         return android::NO_INIT;
     }
-            
+
     QCamera2HardwareInterface *hw = new QCamera2HardwareInterface(camera_id);
     if (!hw) {
         ALOGE("Allocation of hardware interface failed");
