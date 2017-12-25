@@ -48,6 +48,8 @@ LOCAL_C_INCLUDES := \
         $(LOCAL_PATH)/../stack/common \
 				framework/native/include \
         frameworks/native/include/media/openmax \
+        frameworks/native/libs/nativewindow/include \
+        frameworks/native/libs/nativebase/include \
         hardware/qcom/display-caf/msm8974/libgralloc \
         hardware/qcom/media-caf/msm8974/libstagefrighthw \
         $(LOCAL_PATH)/../../mm-image-codec/qexif \
