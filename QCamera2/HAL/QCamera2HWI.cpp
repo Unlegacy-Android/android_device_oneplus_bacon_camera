@@ -5247,22 +5247,6 @@ int32_t QCamera2HardwareInterface::processFaceDetectionResult(cam_face_detection
             faces[i].mouth[1] =
                 MAP_TO_DRIVER_COORDINATE(fd_data->faces[i].mouth_center.y, display_dim.height, 2000, -1000);
 
-            faces[i].smile_degree = fd_data->faces[i].smile_degree;
-            faces[i].smile_score = fd_data->faces[i].smile_confidence;
-            faces[i].blink_detected = fd_data->faces[i].blink_detected;
-            faces[i].face_recognised = fd_data->faces[i].face_recognised;
-            faces[i].gaze_angle = fd_data->faces[i].gaze_angle;
-
-            // upscale by 2 to recover from demaen downscaling
-            faces[i].updown_dir = fd_data->faces[i].updown_dir * 2;
-            faces[i].leftright_dir = fd_data->faces[i].leftright_dir * 2;
-            faces[i].roll_dir = fd_data->faces[i].roll_dir * 2;
-
-            faces[i].leye_blink = fd_data->faces[i].left_blink;
-            faces[i].reye_blink = fd_data->faces[i].right_blink;
-            faces[i].left_right_gaze = fd_data->faces[i].left_right_gaze;
-            faces[i].top_bottom_gaze = fd_data->faces[i].top_bottom_gaze;
-
         }
     }
 
