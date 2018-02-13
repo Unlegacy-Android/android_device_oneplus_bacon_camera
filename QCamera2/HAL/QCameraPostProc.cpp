@@ -27,13 +27,11 @@
 *
 */
 
-#define ATRACE_TAG ATRACE_TAG_CAMERA
 #define LOG_TAG "QCameraPostProc"
 
 #include <fcntl.h>
 #include <stdlib.h>
 #include <utils/Errors.h>
-#include <utils/Trace.h>
 
 #include "QCamera2HWI.h"
 #include "QCameraPostProc.h"
@@ -698,7 +696,6 @@ int32_t QCameraPostProcessor::processData(mm_camera_super_buf_t *frame)
             m_parent->playShutter();
         }
 
-        ATRACE_INT("Camera:Reprocess", 1);
         CDBG_HIGH("%s: need reprocess", __func__);
         // enqueu to post proc input queue
         m_inputPPQ.enqueue((void *)frame);
@@ -2060,7 +2057,6 @@ void *QCameraPostProcessor::dataSaveRoutine(void *data)
     uint8_t is_active = FALSE;
     QCameraPostProcessor *pme = (QCameraPostProcessor *)data;
     QCameraCmdThread *cmdThread = &pme->m_saveProcTh;
-    cmdThread->setName("CAM_JpegSave");
     char saveName[PROPERTY_VALUE_MAX];
 
     CDBG("%s: E", __func__);
@@ -2193,7 +2189,6 @@ void *QCameraPostProcessor::dataProcessRoutine(void *data)
     uint8_t is_active = FALSE;
     QCameraPostProcessor *pme = (QCameraPostProcessor *)data;
     QCameraCmdThread *cmdThread = &pme->m_dataProcTh;
-    cmdThread->setName("CAM_JpegProc");
 
     CDBG("%s: E", __func__);
     do {

@@ -82,9 +82,6 @@ public:
     void getBufDef(const cam_frame_len_offset_t &offset,
             mm_camera_buf_def_t &bufDef, uint32_t index) const;
 
-    void traceLogAllocStart(size_t size, int count, const char *allocName);
-    void traceLogAllocEnd(size_t size);
-
 protected:
 
     friend class QCameraMemoryPool;

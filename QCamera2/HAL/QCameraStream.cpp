@@ -728,7 +728,6 @@ void *QCameraStream::dataProcRoutine(void *data)
     int ret;
     QCameraStream *pme = (QCameraStream *)data;
     QCameraCmdThread *cmdThread = &pme->mProcTh;
-    cmdThread->setName("CAM_strmDatProc");
 
     CDBG("%s: E", __func__);
     do {
@@ -993,7 +992,6 @@ int32_t QCameraStream::getBufs(cam_frame_len_offset_t *offset,
                        NULL,
                        BufAllocRoutine,
                        this);
-        pthread_setname_np(mBufAllocPid, "CAM_strmBufAlloc");
     }
 
     return NO_ERROR;

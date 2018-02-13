@@ -119,7 +119,6 @@ QCameraStateMachine::QCameraStateMachine(QCamera2HardwareInterface *ctrl) :
                    NULL,
                    smEvtProcRoutine,
                    this);
-    pthread_setname_np(cmd_pid, "CAM_stMachine");
 }
 
 /*===========================================================================
