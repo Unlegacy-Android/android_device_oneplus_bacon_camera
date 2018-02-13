@@ -1,6 +1,7 @@
 #encoder int test
 OLD_LOCAL_PATH := $(LOCAL_PATH)
 MM_JPEG_TEST_PATH := $(call my-dir)
+TOP_LEVEL_QC_CAMERA_PATH := $(MM_JPEG_TEST_PATH)/../../../../
 
 include $(CLEAR_VARS)
 LOCAL_PATH := $(MM_JPEG_TEST_PATH)
@@ -22,7 +23,7 @@ LOCAL_CFLAGS += -DUSE_KK_CODE
 endif
 
 OMX_HEADER_DIR := frameworks/native/include/media/openmax
-OMX_CORE_DIR := hardware/qcom/camera/mm-image-codec
+OMX_CORE_DIR := $(TOP_LEVEL_QC_CAMERA_PATH)/mm-image-codec
 
 LOCAL_C_INCLUDES := $(MM_JPEG_TEST_PATH)
 LOCAL_C_INCLUDES += $(MM_JPEG_TEST_PATH)/../inc
@@ -33,7 +34,7 @@ LOCAL_C_INCLUDES += $(OMX_CORE_DIR)/qomx_core
 
 ifneq ($(strip $(USE_BIONIC_HEADER)),true)
 LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
-LOCAL_C_INCLUDES += hardware/qcom/camera
+LOCAL_C_INCLUDES += $(TOP_LEVEL_QC_CAMERA_PATH)
 endif
 LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
@@ -67,7 +68,7 @@ LOCAL_CFLAGS += -DUSE_ION
 endif
 
 OMX_HEADER_DIR := frameworks/native/include/media/openmax
-OMX_CORE_DIR := hardware/qcom/camera/mm-image-codec
+OMX_CORE_DIR := $(TOP_LEVEL_QC_CAMERA_PATH)/mm-image-codec
 
 LOCAL_C_INCLUDES := $(MM_JPEG_TEST_PATH)
 LOCAL_C_INCLUDES += $(MM_JPEG_TEST_PATH)/../inc
@@ -78,7 +79,7 @@ LOCAL_C_INCLUDES += $(OMX_CORE_DIR)/qomx_core
 
 ifneq ($(strip $(USE_BIONIC_HEADER)),true)
 LOCAL_C_INCLUDES += $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
-LOCAL_C_INCLUDES += hardware/qcom/camera
+LOCAL_C_INCLUDES += $(TOP_LEVEL_QC_CAMERA_PATH)
 endif
 LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
 
